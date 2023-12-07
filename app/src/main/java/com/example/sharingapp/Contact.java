@@ -1,15 +1,36 @@
 package com.example.sharingapp;
 
+import java.util.UUID;
+
 public class Contact {
 
     private String id;
     private String email;
     private String username;
 
-    public Contact(String id, String email, String username) {
-        this.id = id;
-        this.email = email;
+    public Contact(){
+
+    }
+
+    public Contact(String username, String email, String id) {
         this.username = username;
+        this.email = email;
+
+
+        if (id == null){
+            setId();
+        } else {
+            updateId(id);
+        }
+    }
+
+    public void setId() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+
+    public void updateId(String id){
+        this.id = id;
     }
 
     public String getId() {
