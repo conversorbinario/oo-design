@@ -1,10 +1,12 @@
 package com.example.sharingapp;
 
 import android.content.Context;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Add a new contact
@@ -55,11 +57,18 @@ public class AddContactActivity extends AppCompatActivity {
         }
 
         Contact contact = new Contact(username_str, email_str, null);
+        AddContactCommand contactCommand = new AddContactCommand(this.contact_list, contact, this.context);
+        contactCommand.execute();
+        boolean isExecuted = contactCommand.isExecuted();
 
-        contact_list.addContact(contact);
-        contact_list.saveContacts(context);
+        if (!isExecuted){
+            return;
+        }
 
-        // End AddContactActivity
+        // End AddItemActivity
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
         finish();
     }
 }
