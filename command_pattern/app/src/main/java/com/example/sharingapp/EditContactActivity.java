@@ -73,9 +73,7 @@ public class EditContactActivity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-     
+
 
         // End EditContactActivity
         finish();
@@ -83,8 +81,12 @@ public class EditContactActivity extends AppCompatActivity {
 
     public void deleteContact(View view) {
 
-        contact_list.deleteContact(contact);
-        contact_list.saveContacts(context);
+
+        DeleteContactCommand delete_command = new DeleteContactCommand(this.contact_list, this.contact, this.context);
+        delete_command.execute();
+        if(!delete_command.isExecuted()){
+            return;
+        }
 
         // End EditContactActivity
         finish();
