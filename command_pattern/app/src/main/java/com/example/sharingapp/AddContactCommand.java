@@ -17,7 +17,7 @@ public class AddContactCommand extends Command {
     @Override
     public void execute() {
         this.contactList.addContact(this.contact);
-        setIsExecuted(contactList.saveContacts(context);
+        setIsExecuted(contactList.saveContacts(context));
     }
 
 }
