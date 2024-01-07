@@ -14,11 +14,11 @@ public class ContactListController {
         this.contact_list = contactList;
     }
 
-    public void setContactList(ArrayList<Contact> contactList){
+    public void setContacts(ArrayList<Contact> contactList){
         this.contact_list.setContacts(contactList);
     }
 
-    public ArrayList<Contact> getContactList(){
+    public ArrayList<Contact> getContacts(){
         return this.contact_list.getContacts();
     }
 
@@ -45,6 +45,9 @@ public class ContactListController {
         this.contact_list.loadContacts(context);
     }
 
+    public ArrayList<String> getAllUsernames(){
+        return this.contact_list.getAllUsernames();
+    }
 
     public Contact getContact(int index) {
         return contact_list.getContact(index);
