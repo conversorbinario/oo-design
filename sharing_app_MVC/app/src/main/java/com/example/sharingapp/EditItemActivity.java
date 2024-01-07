@@ -81,8 +81,9 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
 
         on_create_update = true;
 
-        contact_list_controller.addObserver(this);
         contact_list_controller.loadContacts(context);
+        contact_list_controller.addObserver(this);
+
 
         on_create_update = false;
     }

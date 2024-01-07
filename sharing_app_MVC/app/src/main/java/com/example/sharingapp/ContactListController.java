@@ -18,6 +18,10 @@ public class ContactListController {
         this.contact_list.setContacts(contactList);
     }
 
+
+    public boolean isUsernameAvailable(String username){
+        return this.contact_list.isUsernameAvailable(username);
+    }
     public ArrayList<Contact> getContacts(){
         return this.contact_list.getContacts();
     }
@@ -39,6 +43,10 @@ public class ContactListController {
         edit_contact_command.execute();
         return edit_contact_command.isExecuted();
 
+    }
+
+    public boolean hasContact(Contact contact){
+        return this.contact_list.hasContact(contact);
     }
 
     public void loadContacts(Context context) {
@@ -63,9 +71,7 @@ public class ContactListController {
         return contact_list.getSize();
     }
 
-    public boolean isUserNameAvailable(String username){
-        return this.contact_list.isUsernameAvailable(username);
-    }
+
 
     public Contact getContactByUsername(String username) {
         return contact_list.getContactByUsername(username);
