@@ -46,7 +46,7 @@ public class ContactListController {
     }
 
 
-    public Contact getItem(int index) {
+    public Contact getContact(int index) {
         return contact_list.getContact(index);
     }
 
@@ -60,14 +60,9 @@ public class ContactListController {
         return contact_list.getSize();
     }
 
-
-    public void loadItems(Context context) {
-        contact_list.loadContacts(context);
+    public boolean isUserNameAvailable(String username){
+        return this.contact_list.isUsernameAvailable(username);
     }
-
-
-
-
 
     public Contact getContactByUsername(String username) {
         return contact_list.getContactByUsername(username);
