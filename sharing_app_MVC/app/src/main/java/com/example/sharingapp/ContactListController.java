@@ -41,6 +41,11 @@ public class ContactListController {
 
     }
 
+    public void loadContacts(Context context) {
+        this.contact_list.loadContacts(context);
+    }
+
+
     public Contact getItem(int index) {
         return contact_list.getContact(index);
     }
